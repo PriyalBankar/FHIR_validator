@@ -5,6 +5,7 @@ env:
   variables:
 
     ECR_REPO_URL: "096961057601.dkr.ecr.us-east-1.amazonaws.com/fhir_validation_repository"
+    GIT_BRANCH: "master"
  
 phases:
 
@@ -17,6 +18,9 @@ phases:
   pre_build:
 
     commands:
+     - echo "Checking out branch $GIT_BRANCH"
+     
+      - git checkout $GIT_BRANCH
 
       - echo "Logging in to Amazon ECR..."
 
@@ -27,6 +31,7 @@ phases:
   build:
 
     commands:
+      - echo "Building on branch $GIT_BRANCH"
 
       - echo "Building Docker image..."
 
