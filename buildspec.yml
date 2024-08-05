@@ -12,7 +12,7 @@ phases:
 
     runtime-versions:
 
-      docker: 18
+      docker: 19
  
   pre_build:
 
